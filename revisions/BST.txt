@@ -1,0 +1,22 @@
+basics Time O(Height of the tree)
+check notes
+min left-most and max right-most
+predecessor  left-sub-tree max value and successor right-sub-tree min value Time O(logn)
+call left and right recurrsion if both are true check for root Time dfs O(N) space  O(height of the tree)
+inorder(root->left,prev) if(prev!=NULL) prev->next = root;   prev=root;   inorder(root->right,prev) Time O(N) space O(H)
+check for left and right subtree if n1 is present left and n2 is present right root is LCA Time O(H) space O(H)
+usual approach works in O(N*N) and O(H) space; another approach is using inorder and hash map Time O(N) and O(N) optimized approach is  : keep low and high value : if node val falls in this range call for left(min,root->val) right (root->val,max) return root increment the index of preorder and postorder accordingly Time O(N) space O(H)
+get the inorder of the given tree sort it and store it in a vector : again do the inorder of given tree replace the value with values in the sorted vector Time O(Nlogn) space O(N)
+inorder height to be minimum get the mid , make mid as root call left and right Time O(n) space O(N) 
+get the inorder of both; merge them as construct binary tree from that array using previous question approach (get mid) Time O(n+m) space O(n+m)
+reverse inorder(descending) and dec k when k==0 return root->value Time O(H+k) space O(H)
+reverse inorder and dec k when k==0 return root->value Time O(H+k) space O(H)
+traverse each node in bst1 and check whether diff-root is present in bst2 Time O(n*log(m)) Space O(H)
+inorder as BST is sorted and find the median Time O(N) space O(H)
+inorder and check root is in given range if yes count++ Time O(N) space O(H)
+construct binary tree insertion O(nlogn) deletion O(nlogn) for each find the inorder successor worst case it will take O(n*n) use reverse inorder Time O(n) space O(H) total Time O(nlogn) space O(h)
+use interval trees Basic approach would take O(n*n)
+construct bst from pre-order (taking INT_MIN and INT_MAX) Time O(N) space O(H)
+keep intervals for each node  a node is dead if (left_interval+1=root && root+1=right_interval) Time O(N) space O(H) recursion stack space
+Tushar roy's video
+inorder ,(better to store intial left and right pointers) ,matain prev as reffernce when you go to next node change TIme O(N) space O(H)

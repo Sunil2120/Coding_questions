@@ -1,0 +1,35 @@
+BFS, print nodes popped O(V+E)
+same as Level order traversal push right first then left reverse the result
+either DFS or BFS keep count of length return the max_length
+call left and right; update max(max,left+right+1); return max(left,right)+1; O(N)
+call mirror(left),mirror(right) swap left and right  O(N)
+stack<node*> ;cur=root; if(cur!=NULL) push(cur) cur=cur->left; else (cur==NULL) if(stack is empty) return; cur = stack.top() print cur=cur->right O(V) space O(H)
+stack<node*> ;cur=root; if(cur!=NULL)  print cur ; push(cur); cur=cur->left; else (cur==NULL) if(stack is empty) return; cur = stack.top() cur=cur->right O(V) space O(H)
+Left->right->root    check notes
+(get the  first node of all levels using BFS) use unordered_map or just prev variable should do
+same as left view but push right node first then left node
+take care vertical distance (ie when u go left -1 and right +1) ,use map, update only for the first time,print the map in sorted manner
+map,use bfs(for level order traversal) root will be assigned value 0 ,when u go left do val-1 and right val+1 and update map[val] everytime and  print the values of the map with keys sorted
+keep 2 stacks of nodes (cur level and next level) while(both the stacks are not empty) push the children of nodes in cur level( in order left to right to the stack next level) until it becomes empty similary do the same for the next level nodes (push these nodes children in order right ,left ) until this becmes empty TIme is O(n) space is O(n) largestt level
+keep pair<bool,height> ; call left and right if(both are true) check is root node is balanced or not abs(height(left)-height(right)) <=1 return {true,max(height)+1}  else return false O(N)
+either DFS or BFS; unordered_map<int,vector<int>>; every node will have parmeter value ( left -1) (right) do nothing ; print the map
+boundry(left)-->leaf_nodes-->boundry(right)   ; boundry(left)(print then call );  boundry(right) (call then print) O(N) space O(H)
+time O(N*N) space O(N) create node then for left find string call left; for right send the remaining string 
+inorder traversal; keep one variable prev(passed as reference) when u reach root(prev->right=root && root->left = prev && prev=root) continue traversal O(N)
+(call left and call right) root->data = (left+right) return (root->data+left+right) O(N) space O(H)
+get the root from preorder; find it's position in inorder(index); call left(low,index-1); call right(index+1,high) use unordered_map to get the root_index O(N) space O(N)
+get inorder of given BT  and get the min number of swaps to convert the given array to sorted array(use unordered map to store the indices of elements in unsorted array; traverse the unsorted array if(arr[i]!=sort_arr[i]) swap(arr[i],arr[indexof(sort[i])]) also update the map accordinly Time O(N)+O(nlogn)+O(n)  space O(n+n)
+keep pair<bool,int> ; if(leaf node) return {T,root->data}; if(root==NULL) return {T,0}; call left l; call right r; if(l==true && r==true && root->data==(l+r)) return {T,root->data+l+r} ; else: return {false,root->data+l+r}; O(N)
+level order traversal ; all leaves should be at same level
+get the inorder string of every subtree and using map check if they are occuring more than once and length of string should be >=2 
+get the children of every nodes in both trees; if mirror means (the children of each node in first tree should be reverse of each node in second tree)
+pair<length,sum>; call left;call right; if(length of both left and right are equal) return {len+1,max(left_sum,right_sum)+root->data}; else return {max_len+1,sum_of_maxlen+root->data}; O(N) O(H)
+check graph is connected and Acyclic
+same as finding the sum of tree; but for every node update the max(max_sum,sum_of_subtree_curnode); sum of subtree is (left+right+root->data); return max_sum(kept  as reference) O(N)
+check notes if root is included exclude it's children ; if root is not included may or may not include children
+check notes
+if(root either n1 or n2) return root; call left and call right ; if(left!=NULL && right!=NULL) return root; else return the one which is not null
+find LCA ; dist b/w n1 and lca + dist b/w n2 and lca O(N)+O(2*N)=> O(N) space O(H) 
+keep global variable ans ; call(left);call(right); if(left!=NULL || right!=NULL) k-- ; if(k==0) ans=root; return root;  else: return NULL;
+variation of finding duplicate subtrees size greater than 2(inorder string); for a node when u find a inorder string already present in map push cur_node in output; return output  O(N) space O(H)
+check base conditions and if(root1->data!=root2->data) return false;  case1 : same order if(isIsomorphic(root1->left,root2->left) && isIsomorphic(root1->right,root2->right)) return true;  case2: (left-right) and (right-left)  if(isIsomorphic(root1->left,root2->right) &&  isIsomorphic(root1->right,root2->left)) return true; time complexity is O(min(m,n)*2) or O(min(m,n)) where m and n are number of nodes in given trees.

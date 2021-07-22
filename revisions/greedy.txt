@@ -1,0 +1,35 @@
+sort on End Time(we try to complete the meeting as early as possible) and include first one and find non-overlapping intervals O(nlogn) O(1)
+place the job as close to the deadline as possible 1) sort based on profit(greedy) 2) keep n slots(to assign n jobs we need n slots 3) place a job in a unoccupied slot closer to its deadline as possible 4) get the total profit from the slots occupied 5) Time O(nlogn) space O(n)
+characters and their frequencies use Min_heap ,   Huffman coding( used to encode characters based on their frequencies) check anil's notes Time O(nlogn) space O(n)
+draw directed graph , get indegree of all nodes 1) start with the node whose indegree is 0 do dfs , get the start node ,end node , min_diameter in all it's nodes 2) print the no of componets start node and end node and min_diameter if (a node is both start and end don't consider it 3) time O(n+m) space O(n)
+1) sort based on (value/weight (profit per unit)) 2) include the items one by one 3) if item weight is less than W include full p+=item profit 4) if item weight is greater than W;  temp = (double)(W*(item_value/item_weight)); p+=temp break (since W is 0) return total profit  Time O(nlogn) space O(1) 
+variation of coin change use dp Time O(amount*n) space O(amount*n)
+group trains based on their platforms,variation of activity selection where each platfrom is assumed as room and trains as meeting , find max trains that can stop(non-overlapping) time O(nlgon) space O(n)
+
+we need max_number_stocks so sort based on price(ascending) find the number of stocks u can buy with k u have Time O(nlogn+n) space O(1)
+1) sort  time O(n) space O(1)
+
+hint 1) merge like descending(as number of pieces intially will be less so cost added will be less) steps:1)sort(both vertical and horizontal cuts descending) 2) intialize horizontal=1 and vertical=1  3) using merge like function if(price of horizontal > price of  vertical)(make horizontal cut horizontal+=1;total_cost = (x[i]*vertical)) else : make vertical cut 4) return total_cost Time O(nlogn+mlogm) space O(1) 
+if we can survive first week means we can rest of the weeks also  1) if(6*N >= (7*m))(I can survive) total purchases (s*m)/n 2) else I can't survive 3) O(1) space O(1)
+same as activity selection  length of non-overlapping meetings I will get first time is the max one O(nlogn) space O(1)
+1) get the total_product excluding zero 2) if total_product is negative => divide it by the max_negative number 3) else return total_product 4) if  only zeros return zero Time O(n) space O(1)
+sort arr 1) turn negatives into positive k-- 2) if k is > 0 and is even do nothing(perform k operations on same element) 3) if k>0 and k is odd exclude the min_positive element 4) return total_sum Time O(nlogn) space O(1)
+sort ascending and take sum of (arr[i]*i) Time O(nlogn) space O(1)
+1. We will sort the array. 2. Calculate the final sequence by taking one smallest element and largest element from the sorted array and make one vector array of this final sequence. 3. Finally, calculate the sum of absolute difference between the elements of the array. Time O(nlogn) space O(n)
+min then max get the diff
+basic
+Time O(n*n) space O(n) ; use min_heap(pair<burst_time,processId>) SJF push all process whose arrival time is less than or equal to I ; pop the min_heap update i ; get the c.t for  all processes
+hint: use set and map 1) set is the main_memory, unordered_map to store the indices Time O(N*K) space O(N)
+sort descending 1) include elements from the first until cur_sum > (total-cur_sum) 2) Time is O(nlogn) space O(1)
+sort and check the min_diff for every m size window from the start to end time O(nlogn+n) space O(1) 
+largest area in a two dimensional matrix containing ones (variation of finding largest area in histogram) time O(N*M) space O(M)
+
+hint: if positives are made zeros negatives will automatically be  zero steps: 1) maintain a queue of indices of negative numbers 2) for every positive elements try to sell it to nearest seller in queue until the element becomes 0 3) if seller in queue becomes 0 pop it 4) return total_work Time O(N*N) space O(N)
+
+same as min_cost to cut the board into squares
+
+think about floyd warshall
+hint: use min_heap steps: 1) put all ropes into min_heap 2) until heap contains one ropes pick two ropes add them to cost and add the added rope into heap 3) return total cost 4) Time O(Nlog(N)+Nlog(N)) space O(N) 
+S=S-1; for (D-1 digits) if(S > 9) output+="9" S-=9 ; else: output+="S" S=0  ; after for loop for last digit if(S==0) output+="1" else: output+="S+1"  return reversed output Time O(D) space O(1) 
+use min/max heap steps: 1) calculate frequency of every char push them into heap 2) prev (pair<char,int>) pop an element from heap add char to string 3) if prev count is > 0 push prev into heap and make current popped element as prev 4) if heap size is 0 and updated prev count is > 0 return "-1" else return string 5) Time O(N*log(distinct char)) space O(distinct char N) 
+1) get the sum of all 3 stacks 2) do until any one of the stack size becomes 0(because max equal sum will be zero) 3)If the sum of all three stacks is the same, then this is the maximum sum.Else remove the top element of the stack having the maximum sum among three of stacks 4) Time O(n1 + n2 + n3)(we'll touch all elements in 3 stacks in worst case space O(1)

@@ -1,0 +1,18 @@
+build_heap using heapify method 1)O(n) and space O(logn) 2) inserting one by one takes O(nlogn) 
+build_heap + deleting nodes one by one if ascending use max_heap(so that elements goes to last) Time O(n+n*logn) Space O(h)=>O(logn) build_heap + delete nodes O(logn)*n
+use max_heap({element,index}) Time O(n*logn) space O(n)
+min_heap Time O(n*log(k)) space O(k)
+largest use min_heap and smallest use max_heap Time O(n*logn) space O(k)
+use min_heap ({ele,index,which arr number} Time O(total_el*(logk)) space O(k)
+copy both the array elements into new array call build heap using heapify method  Time O(n+m) space O(log(n+m))
+find all subarray sums using two for loops and use min_heap(largest) to find the kth largest subarray Time O(n*nlog(k)) space O(logk)
+discussed above using max_heap({char,freq}) don't forget last condition if(prev > 0) return -1 Time O(n+nlog(26)) space O(26)
+same as merge k sorted arrays
+
+use two heaps (max heap and min_heap) (store first half in max_heap and second half in min_heap) push the elements to relevent heap and balance two heaps(both heaps should contain n/2 elements) Time  O(nlogn) space o(n) 
+check bst has following max_heap properties 1) should be ACBT 2) parent > children Time O(n) space O(h)
+use min heap pop first two add them push it to heap until heap size is 1 Time O(nlog(n)) space O(n)
+get the level order traversal (bfs) copy them to array : build_min_heap using heapify method from that array which takes O(n) time O(N) space O(queue+array+h)=> O(n)
+build max heap using heapify method without caring about input Time O(n) space O(logn)
+discussed above 
+sort the array put alternate elements into two strings and (add two strings) remove intital zeroes Time O(nlogn) space O(1)

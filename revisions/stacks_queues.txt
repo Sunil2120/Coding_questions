@@ -1,0 +1,38 @@
+arr[n],top=-1 push O(1) pop O(1)
+arr[n],front=-1,rear=-1, if(front==rear==-1) empty, if(front==rear) only one item Enqueue O(1) Dequeue O(1)
+top1=-1,top2=n stack1(if(top==-1) empty if(top==n || top==top2) full push(top+=1 arr[top]=el) pop(return arr[top] top-=1)) : stack2(if(top2==n) empty if(top2 <0 || top2==top1) full push(top2-=1 arr[top2]=el  pop(return arr[top2] top2+=1)
+we cannot delete middle element of stack which is implemented using array in O(1) time,so we use doubly linked list (update mid(mid=mid->next) if count after inserting node is odd,else do nothing) ,when pop occurs then also we should update mid (reverse of what we did before) ,now to delete middle just delete mid O(1)
+(arr[n],next[n],top[k],free=0) (hint: if element is present in arr[i],then next[i] contains index of previous element in stack,else it will contain index of next free place) check notes TIme is O(1) and Space (O(n+k))
+queue<char>, unordered_map<char,int> freq 1) when u get a char update freq and push it into queue only it is occuring for the first time 2) to get the first non-repeating pop elements from the queue whose freq is > 1 3) print the q.front() if qisempty print # 4) time O(26+n*(max_length_queue=26)) space O(26+max_queue(26))
+Simple Time O(n) space is O(n)
+hint: push O(1) pop O(1) getmin(use recursion like appproach pop an element from stack call recursion after recursion returns update min_element and push it  to stack) Time O(n) space O(n recursion stack)
+stack,steps: 1)traverse arr right-->left 2) pop elements from the stack until either stack is empty or stack.top() is greater then cur_element 3) if stack is empty next_greater is -1 or next_greater is s.top() 4) push cur_ele into stack 5) time O(n) space O(n)
+stack,elimination method steps: 1) push all person to stack 2) while(stack contains one person) pop two person 3) if first person knows second person push (second ) else push(first) 4) after getting final person check whether he is celebrity or not ( his row should contain all zeros and his col should  contain ones except him) Time O(N) space O(N) 
+two stacks one for operands and one for operators steps O(N) space O(N)
+push operands to stack when u get operator pop two elements from stack perform operation push them into stack Time O(N) space O(N)
+Time O(N) space O(N) recursion stack
+steps: pop --> recursion call --> insert at bottom Time O(N*N-1) space O(N)
+steps: pop --> recursion call --> insert at right position Time O(N*N) space O(N) recursion stack   for insert at right position if (stack is empty or stack .top() > el) push el else: pop --> recursion--> push O(N) space O(N)
+steps: sort the intervals starting point 2) add first interval 3) if cur is overlapping with top interval merge them and add the merged interval into stack 4) if not overlapping just add interval to stack 5) at the end stack contains the mutualling exclusive intervals TIme O(Nlogn + N) space O(N)
+find next smaller on both left and right width is right-left+1-2 and height is curr[i] TIme O(N) space O(2N)
+expalin n^3 and then optimize to N^2 then final approach O(N) hints: store the invalid index in stack if (open) invalid push index else (closing) if stack is empty invalid push index ; if stack.top is not open invalid push ; pop stack ; if stack is empty max_len = i+1 else max_len = max(max_len,i-s.top()) return max_len Time O(N) space O(N)
+ use stack : push everything into stack when u get ')' pop everything until '(' if there is not operator between them it is a redudant parathesis time O(N) Space O(N)
+2 queues: push element to non_empty queue pop (pop all elements from non-empty queue push them to empty except the  last one) return the last one Time Push O(1) Pop O(N)
+use double ended queue delete at rear end which takes O(1) push at the rear end O(1)
+steps:1) push elements from Q1 to stack until the stack top contains the top elemenet of Q2 2)  if stack top and Q2 top are equal pop both 3) if stack top doesnot contain the Q2 top push elements from Q1 to stack check conditions Time O(N) space O(N) stack
+2 stacks : push stack and pop stack 1) push elements to push stack 2) pop operation if (pop stack is not empty) return the pop.top() else: push elements from push stack to pop stack and return the pop stack top element  Time push O(1) pop(in worst case O(N))
+required: arr,front,rear,next hint: next[i] when there is no element in arr it contains the next free space index else it contains the index of next element  as front should move there after pop if next[i]==-1 it is the last element in queue Push O(1) Pop O(1)
+full : if (rear+1)%n==front  Empty: rear=front=-1 single element front=rear push arr[rear]=element rear=(rear+1)%n  pop: out = arr[front] front=(front+1)%n Push O(1) pop O(1)
+key here is to use hash map and doubly linked list
+pop --> recursion call ---> push Time O(N) space O(N) recursion stack
+req stack : push first k elements into stack : pop k elements from the stack and enqueue them to queue  : and finally pop and push the n-k elements from queue to same queue Time O(k+K+(n-k)) Space Stack of size O(K)
+req another queue steps: 1) push first half of the elements to another queue 2) push element from q2 to q1 then q1 to q1 (interleaved fashion) Time O(N) space O(n/2)
+
+brute force O(m*n*m*n) space O(m*n) Best solution is to use queue push all rotten(2) oranges with time 0 into queue 2) while(q becomes empty) push the neighbors of rotten oranges pushed into queue by increasing their time and finally the last orange in the queue time is min time and check the array once if any 1 is left return -1 Time O(m*N) space O(m*n)
+push ones into queue and bfs to zero from top of the stack update distance each time Time O(n*m) since we are pushing each element into queue once Space O(n*m)
+easy sliding window + queue (negative intergers appraoch) Time o(N) space O(N)
+maintain two queue 1) push root1 and root2 2) take the size of queue n1,n2 3) check for conditions 4) if n1==n2 push the children of current queue to the same queue until n1 is 0 (basically the queue contains the next level elements) 5) while poping from the queue add it to two vectors (curlevel vectors) 6) sort them and check for annagrams 7) TIme is O(h*Wlog(W)) spacce is O(W)
+use priority queues min_heap and max_heap for every window find computer max+min and return total Time O(n*(logk+logk)) space O(k)
+try to reduce the freq of max_freq char in given string so the total square sum reduces 1) make use of max_heap to get the max_count and reduce the max_count again push it heap 2) compute the square sum return it Time O(N) space O(N)
+discussed above
+use stack traverse from right to left as we need the information of elements on right side Time O(N) space O(N)

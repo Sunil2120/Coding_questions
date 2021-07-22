@@ -1,0 +1,51 @@
+Graphs
+
+adj-matrix, adj-list, edges list
+queue and make visited after pushing O(V+E) space O(V)
+recursion make visited once u go to that node O(V+E) space O(height) make lead to stack overflow
+DFS(colors(0,1,2) 0 visited,1 recursion stack,2 not present in current recursion stack if(color[next]==1) cycle)   BFS(indegree 0 push them into queue while(!Q.empty()) pop count++ and decrement indegree of it's neighbours if(indegree==0) push  after while if(count!=V) return true 
+simple dfs and bfs but check for parent(maintain parent array) if next is not parent and it is visited return true
+DFS + backtracking
+unweighted or same weight min_steps so BFS
+start DFS or BFS from source check adj make everything newColor if(src==newColor) return img
+Map <node*,node*>(BFS, queue contains original nodes clone when it is not visited )  BFS if(hash[next]==NULL) created clone and push next to Q and hash[cur].neigh.push_back(hash[next]) 
+(Note to connect n disconnected comp we need n-1 wires) get the number of comp and for each comp get the number of edges and vertices (for a comp to be connected we need n-1 edges only ) get the extra edges in all components if total_extra > req (req) else -1
+unweighted and we need min_steps so  BFS (keep pair to get min_steps)
+do (n-1) times,visited,dist,min_vertex(unvisited) explore neighbours(unvisited) note make_visited when u get min_vertex unlinke in BFS and relax neigbours O(N*N) space O(N)
+u should come first before v (u->v) DFS and stack if all neighbours are visited push cur to stack and print by poping stack (take care of Disconnected) O(V+E) space O(V)
+BFS or DFS start with indegree 0 (not visited) and increment level each time , for a node the time is min(each_time it is visited) O(V+E) space O(V)
+Deadlock like condition, Directed graph and check for circular wait (check for cycle) time O(V+E)
+no of connected components use DFS or BFS
+topological sorting, traverse the words(words[i],words[i+1]) add direct edge b/w first mismatch break and continue for next two adj words
+Time O(ElogE + (V-1)*(2V)) space O(V), sort edges list, take one edge find both vertices belong to diff comp(union find algo) if not add this edge do this until u include V-1 edges
+ unlike BFS make visited once u pop,adjList/adjMatrix,visited,weights,parents,get minimum unvisited vertex explore its unvisited neighs and  relax(weight[next] > adj[min_][next]) weight[next]=adj[min_][next] O(V+E*(V))(use priority queue to min_vertex, pop until u get unvisited vertex)
+
+directed,negative edge weight,edge list,dist, do for n-1 times for all edges relax(dist[v]>dist[u]+w) => dist[v]=dist[u]+w,after n-1 times do it one more time and whether relaxing in happenig if yes negative edge cycle else dist vector O(V+(V)*E) space O(E)
+dir,undirected,ajdMatrix,adj[i][i]=0,no edge INT_MAX,for(k,i,j) if(adj[i][k]+adj[k][j] < adj[i][j])relax,can detect negative weight cycle for this if(adj[i][i] < 0) negative weight cycle O(V^3) space O(V^2)
+
+backtracking,if(cur==V) return true,for(i=1to m) check coloring cur node with i is safe, if safe put that color and rec(cur+1) if not true color[cur]=0 and next iteration
+min_steps,BFS , maintian a dist vect of size (equal to number of cells)
+visited,low,in,timer,dfs,low[start]=in[start]=timer++,if(next==parent) continue,if(visited[next]==true) //backedge low[start]=min(low[start],in[next]) else visited[next]=false, dfs(next) low[start]=min(low[start],low[next]) , if(low[next] > in[start])//bridge continue
+DFS(stack(once start finishes it job push)) + transpose +visited.clear()+ (pop elements from stack if(visited continue) else do dfs again(elements visited now will be in one comp)) O(V+E) 
+bfs,two sets,put the src node into first set , for every children of popped node check three condition (1. whether it is not present in any of the set,unvisited,push to the queue, 2. node is present in same set return false 3. it is present is oppositie set do nothing) when q is empty return true
+Bellman ford or floyd warshall algorithm
+dist_vector (all INT_MIN except src=0) ,topological sorting (because parent should be relaxed before relaxing its children) , iterator the nodes in topological sort order and for all of its neighbours relax dist[v] < dist[u]+adj[u][v]) dist[v]=dist[u]+adj[u][v](reverse djisktra) and print dist
+no of connected components use DFS or BFS and return product of number of nodes in each  components
+backtracking explore all possible paths from src to dest keep track of stops(k--) if k==0 and not at dest return , at dest update min; return min_cost  
+
+
+
+explore all possible paths for source and if len > k at any node ;return true
+backtracking + dfs
+create undirected graph, explore all possible paths backtracking from src to dest, keep track of  edges to be reverse and return the min_count
+Euther circuit (degree of vertices should be even) Euther path(degree of exactly two vertices should be odd) Hamiltonin cirucit(dirac's theorem degree of every vertices should be atleast V/2) Ori's theroem(degree(u)+degree(v) for every non-adj vertices should be atleast n
+edgeList, set , for each edge check if(either u or v present in set) continue; else add one with highest degree  , print  the set 
+
+use three for loops (i,j,k) if edge[i][j]==1 && edge[j][k]==1 && edge[k][i]==1 ; count+=1 for undirected return count/6 ; for directed return count/3
+cal net amount(outgoing- and incomming+) for every person,get max_debit(index of min in net) and max_credit(index of max in net) if(amount[both]==0)settled return; else min(abs(amount[max_debit]),abs(amount[max_credit])); utimately we want to reach zero; max_debit(-)+min_value and max_credit(-)-min_value continue
+check for two completely connected subgraphs  steps: compliment + isBipartite of compliment graph is true return true(2 cliques); else false(not)
+
+
+Hamiltonian cirucuit/path explore all possible paths backtracking, if all vertices are visited (Hamiltonian path) and if last vertex has a edge to src (hamiltonian circuit)
+Euler circuit Heluizer algo(stack,for every node if adj node exist remove that edge and call dfs to next , if a node has no adj push to stack) print stack 
+

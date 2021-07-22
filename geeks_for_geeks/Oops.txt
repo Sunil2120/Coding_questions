@@ -1,0 +1,68 @@
+ The C++ language is ______ object-oriented language.
+ Semi Object-oriented or Partial Object-oriented
+
+ The main reasons why the C++ programming language is Known as Semi-Object oriented language are as follows:
+
+Availability of the Friend function-
+A friend class is allowed to access private and protected members of another class, within which it is declared a friend. It may be very useful for some time, but still, it violates the rule of the Object-Oriented features.
+Concept of the Global variable-
+As we all know that we can declare a global variable in C++ language that can be easily accessible from anywhere within the program. So again, C++ does not provide complete privacy because no one is restricted to access and manipulate that data/information. Hence it offers partial Encapsulation, unlike Java Language, in which a user only allows to declare a variable within the class and can provide access specifier to it.
+The main function is Out-side the class-
+C++ is an object-oriented language, but still, object-oriented is not fundamentally related (or implicit) to the language. So a user can easily write a valid, well-defined C++ code even without using any object once.
+
+C++ is a ___ type of language
+
+ C++ contains the features of both types of high and Low-level programming languages, and it is also not wrong if we call it the combination of both high and low-level languages
+
+
+  In C++, one can use the rank function where he wants to know about the dimensions( e.g., single-dimension, multi-dimension) of a specific array by just passing it to the "rank()" function.
+
+
+  #include <iostream>  
+	using namespace std;  
+	class A{  
+	public:  
+	    A(){  
+	        cout<<"Constructor called\n";  
+	       }  
+	    ~A(){  
+	        cout<<"Destructor called\n";  
+	        }   
+	};  
+	int main(int argc, char const *argv[])  
+	{  
+	    A *a = new A[5];  
+	    delete[] a;  
+	    return 0;  
+	}  
+
+	As mentioned in the above-given program, five-pointer variables are initiated using the "new" keyword so that the Constructor will be invoked five times. In addition, the destructor "Delete[]" is used( that is used for deleting the group of the several objects) for terminating variables. Hence all of the variables will be terminated completely, and while terminating the variables, the destructor will be invoked five times.
+
+
+	 In the C++ program, if we use a class without assigning a name. As a result, it will not be going to have a destructor, but it will have the object. To understand it in more detail, consider the following program:
+
+	Program
+
+	#include 
+	using namespace std;
+	class
+	{
+	    public:
+		void func()
+	        {
+			cout<<"Hello world";
+		}
+	}a;
+	int main(int argc, char const *argv[])
+	{
+		a.func();
+		return 0;
+	}
+
+	top down and bottom-up approach
+	https://www.includehelp.com/cpp-tutorial/top-down-and-bottom-up-approach.aspx
+
+
+	Modularity refers to dividing a program into small independent code blocks or modules so that they can be easily called anywhere in the entire program where it is required. The concept of Modularity is very efficient and helpful for developers because it makes the program well structured and easy to understand. Hence the correct option is D.
+
+
